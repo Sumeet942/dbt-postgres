@@ -2,7 +2,6 @@
 [sqlfluff]
 dialect = postgres
 templater = jinja
-exclude_rules = L009  # example: ignore unquoted identifiers
 
 [sqlfluff:rules]
 max_line_length = 100
