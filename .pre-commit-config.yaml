@@ -6,11 +6,3 @@ repos:
         args: [--dialect, postgres]
         files: \.sql$
         exclude: ""
-  - repo: local
-    hooks:
-      - id: sqlfluff-fix-and-add
-        name: SQLFluff Fix + Git Add
-        entry: bash scripts/sqlfluff_fix_and_add.sh
-        language: system
-        files: \.sql$
-        pass_filenames: true
