@@ -1,7 +1,16 @@
 repos:
   - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 2.3.4  # Use the latest stable version if needed
+    rev: 2.3.4
     hooks:
-      - id: sqlfluff-fix
-        args: [--dialect, postgres]  # change dialect to your actual one (e.g., postgres, bigquery, etc.)
+      - id: sqlfluff-lint
+        args: [--dialect, postgres]
         files: \.sql$
+        exclude: ""
+  - repo: local
+    hooks:
+      - id: sqlfluff-fix-and-add
+        name: SQLFluff Fix + Git Add
+        entry: bash scripts/sqlfluff_fix_and_add.sh
+        language: system
+        files: \.sql$
+        pass_filenames: true
